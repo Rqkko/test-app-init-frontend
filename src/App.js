@@ -11,7 +11,7 @@ function App() {
       return;
     }
 
-    fetch(`${apiUrl}/users`) // Call FastAPI, NOT Supabase directly
+    fetch(`test-app-init-backend.railway.internal/users`) // Call FastAPI, NOT Supabase directly
       .then((res) => res.json())
       .then((data) => setUsers(data))
       .catch((error) => console.error("Error fetching users:", error));
