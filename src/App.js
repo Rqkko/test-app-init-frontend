@@ -1,12 +1,20 @@
+// filepath: /Users/rakko/UserDocuments/Studies/University/Year3/Semester2/DES422_BusinessApplicationDevelopment/TestProject/frontend/src/App.js
 import { useEffect, useState } from "react";
 
 function App() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch(import.meta.env.VITE_API_URL + "/users") // Call FastAPI, NOT Supabase directly
+    const apiUrl = import.meta.env.VITE_API_URL;
+    if (!apiUrl) {
+      console.error("VITE_API_URL is not defined");
+      return;
+    }
+
+    fetch(`${apiUrl}/users`) // Call FastAPI, NOT Supabase directly
       .then((res) => res.json())
-      .then((data) => setUsers(data));
+      .then((data) => setUsers(data))
+      .catch((error) => console.error("Error fetching users:", error));
   }, []);
 
   return (
