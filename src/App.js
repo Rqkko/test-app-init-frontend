@@ -5,11 +5,11 @@ function App() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    const apiUrl = import.meta.env.VITE_API_URL;
-    if (!apiUrl) {
-      console.error("VITE_API_URL is not defined");
-      return;
-    }
+    // const apiUrl = import.meta.env.VITE_API_URL;
+    // if (!apiUrl) {
+    //   console.error("VITE_API_URL is not defined");
+    //   return;
+    // }
 
     fetch(`test-app-init-backend.railway.internal/users`) // Call FastAPI, NOT Supabase directly
       .then((res) => res.json())
