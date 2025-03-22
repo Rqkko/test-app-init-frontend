@@ -6,6 +6,7 @@ function App() {
 
   useEffect(() => {
     const apiUrl = process.env.REACT_APP_API_URL;
+    console.log(apiUrl);
     if (!apiUrl) {
       console.error("VITE_API_URL is not defined");
       return;
