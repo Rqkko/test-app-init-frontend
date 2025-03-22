@@ -6,7 +6,7 @@ function App() {
 
   useEffect(() => {
     // const apiUrl = process.env.REACT_APP_API_URL;
-    const apiUrl = "https://test-app-init-backend"
+    const apiUrl = "test-app-init-backend"
     console.log(apiUrl);
     if (!apiUrl) {
       console.error("REACT_APP_API_URL is not defined");
