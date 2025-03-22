@@ -4,5 +4,6 @@ COPY package.json package-lock.json ./
 RUN npm install
 COPY . .
 RUN npm run build
-EXPOSE 80
-CMD ["npx", "serve", "-s", "build", "-l", "80"]
+RUN npm install -g serve
+EXPOSE 3000
+CMD ["serve", "-s", "build", "-l", "3000"]
