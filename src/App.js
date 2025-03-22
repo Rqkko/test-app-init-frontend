@@ -24,6 +24,9 @@ function App() {
         return res.json();
       })
       .then((data) => {
+        if (!data.data || data.data.length === 0) {
+          throw new Error("No users found", data);
+        }
         setUsers(data.data[0].name)
       })
       .catch((error) => console.error("Error fetching users:", error));
