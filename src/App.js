@@ -5,17 +5,18 @@ function App() {
   const [users, setUsers] = useState("test");
 
   useEffect(() => {
-    const apiUrl = process.env.REACT_APP_API_URL;
+    // const apiUrl = process.env.REACT_APP_API_URL;
+    const apiUrl = "https://test-app-init-backend"
     console.log(apiUrl);
     if (!apiUrl) {
-      console.error("VITE_API_URL is not defined");
+      console.error("REACT_APP_API_URL is not defined");
       return;
     }
     else {
-      console.log("VITE_API_URL is defined");
+      console.log("REACT_APP_API_URL is defined");
     }
 
-    fetch(`${apiUrl}/users`) // Call FastAPI, NOT Supabase directly
+    fetch(`${apiUrl}/users`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
